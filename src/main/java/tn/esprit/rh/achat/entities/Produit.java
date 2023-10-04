@@ -32,6 +32,7 @@ public class Produit implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idProduit;
 	private String codeProduit;
+        private boolean promo;
 	private String libelleProduit;
 	private float prix;
 	@Temporal(TemporalType.DATE)
