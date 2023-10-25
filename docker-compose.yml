@@ -1,0 +1,19 @@
+version: '3'
+services:
+  achat-app:
+    image: achat-devops:1.0
+    depends_on:
+      - mysql
+    ports:
+      - "8090:8089"
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD:  # Laissez vide
+      MYSQL_DATABASE: achat_db
+    volumes:
+      - db:/D:/db_achat
+    ports:
+      - "3307:3306"
+volumes:
+  db:
