@@ -19,5 +19,7 @@ services:
     image: yosrabenchaaben/front_devops:1.0
     ports:
       - "8085:80"
+    depends_on:
+      - achat-app
 volumes:
   db:
