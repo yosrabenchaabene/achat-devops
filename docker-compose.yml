@@ -15,5 +15,9 @@ services:
       - db:/D:/db_achat
     ports:
       - "3307:3306"
+  frontend:
+    image: front_devops:1.0
+    ports:
+      - "8080:80"  
 volumes:
   db:
