@@ -1,11 +1,12 @@
 version: '3'
 services:
   achat-app:
-    image: achat-devops:1.0
+    image: yosrabenchaaben/achat-devops:1.0
     depends_on:
       - mysql
     ports:
       - "8090:8089"
+    restart: on-failure
   mysql:
     image: mysql:5.7
     environment:
