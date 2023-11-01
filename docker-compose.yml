@@ -7,6 +7,8 @@ services:
     ports:
       - "8090:8089"
     restart: on-failure
+    networks:
+      - my-network
   mysql:
     image: mysql:5.7
     environment:
@@ -18,11 +20,15 @@ services:
       - db:/D:/db_achat
     ports:
       - "3307:3306"
+    networks:
+      - my-network
   frontend:
     image: yosrabenchaaben/front_devops:1.0
     ports:
       - "8085:80"
     depends_on:
       - achat-app
+    networks:
+      - my-network
 volumes:
   db:
