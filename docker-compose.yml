@@ -32,3 +32,6 @@ services:
       - my-network
 volumes:
   db:
+networks:
+  my-network:
+    driver: bridge
