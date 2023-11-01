@@ -1,6 +1,6 @@
 version: '3'
 services:
-  achat-app:
+  achat:
     image: houssemkharroubi21/achat:tagname
     depends_on:
       - mysql
