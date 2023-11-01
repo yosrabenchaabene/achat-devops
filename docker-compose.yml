@@ -15,7 +15,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: achat_db
     volumes:
-      - db:/D:/db_achat
+      - ./db_achat:/var/lib/mysql
     ports:
       - "3307:3306"
   frontend:
@@ -24,5 +24,3 @@ services:
       - "8085:80"
     depends_on:
       - achat
-volumes:
-  db:
