@@ -1,7 +1,7 @@
 version: '3'
 services:
   achat:
-    image: houssemkharroubi21/achat
+    image: houssemkharroubi21/achat:55
     depends_on:
       - mysql
     ports:
