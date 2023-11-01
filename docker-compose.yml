@@ -1,7 +1,7 @@
 version: '3'
 services:
   achat-app:
-    image: houssemkharroubi/achat-devops:1.0
+    image: houssemkharroubi21/achat
     depends_on:
       - mysql
     ports:
@@ -19,7 +19,7 @@ services:
     ports:
       - "3307:3306"
   frontend:
-    image: houssemkharroubi/front_devops:1.0
+    image: houssemkharroubi21/front_dev
     ports:
       - "8085:80"
     depends_on:
