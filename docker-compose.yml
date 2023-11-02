@@ -6,18 +6,18 @@ services:
       - "8089:8089"
     restart: on-failure
     environment:
-      - SERVER_SERVLET_CONTEXT_PATH=/SpringMVC
-      - SERVER_PORT=8089
-      - SPRING_DATASOURCE_URL=jdbc:mysql://achat-db:3306/achatdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/achatdb?createDatabaseIfNotExist=true&useUnicode=true
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "root"
+
     depends_on:
       - mysql
   mysql:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_USERNAME: root
-      MYSQL_ROOT_PASSWORD:  # Laissez vide
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: achatdb
+      - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_PASSWORD=root
+        - MYSQL_DATABASE=achatdb
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
@@ -30,4 +30,3 @@ services:
       - achat-app
 volumes:
   mysql_data:
-
