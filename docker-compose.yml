@@ -22,8 +22,6 @@ services:
       - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
-    networks:
-      - my-network
   frontend:
     image: yosrabenchaaben/front_devops:1.0
     ports:
