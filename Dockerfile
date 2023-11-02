@@ -3,8 +3,8 @@ FROM maven:3.9.4 AS build
 WORKDIR /app
 COPY pom.xml /app
 COPY src /app/src
-# Exécution de la commande mvn clean package pour reconstruire le fichier JAR de l'application
 RUN mvn package -DskipTests
+
 
 # Stage2: Utilisation de l'image OpenJDK 11 depuis Docker Hub
 FROM openjdk:11
