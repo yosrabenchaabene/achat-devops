@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 @Slf4j
-public class ProduitServiceImplTestmockito {
+public class ProduitServiceImplTest {
 
     @InjectMocks
     private ProduitServiceImpl produitService;
