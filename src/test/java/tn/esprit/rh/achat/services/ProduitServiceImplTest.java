@@ -1,25 +1,30 @@
 package tn.esprit.rh.achat.services;
 
+
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.junit.Before;
-import org.junit.Test;
+import org.mockito.junit.MockitoJUnitRunner;
 import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.repositories.ProduitRepository;
 import tn.esprit.rh.achat.repositories.StockRepository;
-import java.util.Optional;
+
 import java.util.ArrayList;
 import java.util.List;
-import static org.mockito.Mockito.when;
-import static org.mockito.ArgumentMatchers.any;
+import java.util.Optional;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
 @Slf4j
+@RunWith(MockitoJUnitRunner.class)
 public class ProduitServiceImplTest {
-
     @InjectMocks
     private ProduitServiceImpl produitService;
 
@@ -29,7 +34,7 @@ public class ProduitServiceImplTest {
     @Mock
     private StockRepository stockRepository;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
@@ -64,16 +69,17 @@ public class ProduitServiceImplTest {
 
         // Verify the result
         assertEquals("New Product", addedProduct.getLibelleProduit());
+
+        System.out.println("Test retrieve all succeffly passed"+addedProduct.getLibelleProduit());
+
     }
 
     @Test
     public void testUpdateProduit() {
-        // Create an existing product and a modified version
-        Produit existingProduct = new Produit(1L, "Existing Product", 40);
+        // Create a modified version of the product
         Produit modifiedProduct = new Produit(1L, "Modified Product", 50);
 
-        // Define the behavior of the mock repository
-        when(produitRepository.findById(existingProduct.getIdProduit())).thenReturn(Optional.of(existingProduct));
+        // Define the behavior of the mock repository for the "save" method
         when(produitRepository.save(any(Produit.class))).thenReturn(modifiedProduct);
 
         // Call the service method
@@ -82,6 +88,8 @@ public class ProduitServiceImplTest {
         // Verify the result
         assertEquals("Modified Product", updatedProduct.getLibelleProduit());
     }
+
+
 
     @Test
     public void testDeleteProduit() {
@@ -103,3 +111,4 @@ public class ProduitServiceImplTest {
 
 
 }
+
