@@ -14,7 +14,7 @@ services:
    app-achat:
      depends_on:
        - mysqldb
-     image: zahrakr/achat-1.0
+     image: zahrakr/achat-1.0:1.0
      restart: on-failure
      ports:
        - 8089:8089
