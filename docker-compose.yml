@@ -3,7 +3,7 @@ services:
   springboot-app:
     container_name: achat
     image: houssemkharroubi21/achat:53
-    restart: always
+    restart: on-failure
     ports:
       - 8088:8089
     environment:
