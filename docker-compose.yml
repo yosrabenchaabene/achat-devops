@@ -20,7 +20,7 @@ services:
     image: mysql:latest
     container_name: mysql-db
     environment:
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: achatdb
     volumes:
       - mysql_data:/var/lib/mysql
