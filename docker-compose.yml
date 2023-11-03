@@ -13,7 +13,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=achatuser
       - SPRING_DATASOURCE_PASSWORD=achatpass
     depends_on:
-      - achat-db
+      - mysqldb
     stdin_open: true
 
   mysqldb:
