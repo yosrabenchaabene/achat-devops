@@ -10,4 +10,4 @@ ADD target/achat-1.0.jar achat-1.0.jar
 
 
 # Commande pour exécuter l'application Spring Boot
-ENTRYPOINT ["java", "-jar", "/achat-devops-master-1.0.jar"]
+ENTRYPOINT ["java", "-jar", "/achat-1.0.jar"]
