@@ -2,7 +2,8 @@ package tn.esprit.rh.achat.services;
 
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -37,6 +38,10 @@ public class ProduitServiceImplTest {
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+    }
+    @AfterEach
+    public void cleanup(){
+    produitRepository.deleteAll();
     }
 
     @Test
