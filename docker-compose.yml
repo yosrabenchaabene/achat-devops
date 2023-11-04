@@ -1,33 +1,24 @@
-version: "3.8"
+version: "3"
 services:
-  mysqldb:
-    image: mysql:5.7
-    restart: unless-stopped
-    environment:
-     - MYSQL_ROOT_PASSWORD=
-     - MYSQL_DATABASE=achat_db
+  springboot-app:
+    container_name: achat
+    image: houssemkharroubi21/achat:82
+    restart: always
     ports:
-      - 3306:3306
-    volumes:
-      - db:/var/lib/mysql
-  app-timesheet:
-    depends_on:
-      - mysqldb
-    image: houssemkharroubi21/achat:89
-    restart: on-failure
-    ports:
-      - 8082:8082
+      - 8088:8089
     environment:
-        SPRING_APPLICATION_JSON: '{
-          "spring.datasource.url": "jdbc:mysql://mysqldb:3306/achatdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true",
-          "spring.datasource.username": "root",
-          "spring.datasource.password": "",
-          "spring.jpa.show-sql": "true",
-          "spring.jpa.hibernate.ddl-auto": "update",
-          "spring.jpa.properties.hibernate.dialect": "org.hibernate.dialect.MySQL5InnoDBDial
-           }'
-    stdin_open: true
-    tty: true
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
 
-volumes:
-  db:
+  mysqldb:
+    container_name: mysqldb
+    image: mysql
+    volumes:
+      - ./db_achatt:/var/lib/mysql
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: achatdb
+      MYSQL_ROOT_PASSWORD: root
