@@ -7,7 +7,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD:
       MYSQL_DATABASE: achatdb
-      MYSQL_ALLOW_EMPTY_PASSWORD: true  
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
     ports:
       - "3306:3306"
     volumes:
@@ -34,7 +34,7 @@ services:
   frontend:
     image: yosrabenchaaben/front_devops:1.0
     ports:
-      - "8085:80"
+      - "4200:80"
     depends_on:
       - achat-app
 
