@@ -16,7 +16,7 @@ services:
 
   achatapplication:
     container_name: achatapplicationcontainer
-    image: abirbourguiba504/back-achat-devops:1.0.1
+    image: abirbourguiba504/back-achat-devops:latest
     ports:
       - 8089:8089
     depends_on:
