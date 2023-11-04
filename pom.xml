@@ -27,9 +27,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-
-
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -72,7 +69,7 @@
         <repository>
             <id>deploymentRepo</id>
             <name>Nexus Repository</name>
-            <url>http://192.168.227.153/repository/maven-releases/</url>
+            <url>http://192.168.227.153:8081/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
     <build>
