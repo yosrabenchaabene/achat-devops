@@ -16,7 +16,7 @@ services:
 
   achatapplication:
     container_name: achatapplicationcontainer
-    image: houssemkharroubi21/achat:82
+    image: houssemkharroubi21/achat:85
     ports:
       - 8089:8089
     depends_on:
