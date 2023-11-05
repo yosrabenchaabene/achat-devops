@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: achatdb
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - achat_db_data:/var/lib/mysql
+
+  spring:
+    image: medazizbay/achat:latest
+    restart: on-failure
+    ports:
+      - "8089:8089"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://localhost:3306/achatdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "root"
+      SPRING_JPA_HIBERNATE_DDL-AUTO: "update"
+    depends_on:
+      - db
+
+  achat-frontend:
+    image: medazizbay/frontend-apps:latest # Specify the image name here
+    restart: unless-stopped
+    ports:
+      - "80:80"
+volumes:
+  achat_db_data:
