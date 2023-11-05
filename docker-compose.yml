@@ -18,7 +18,7 @@ services:
     image: houssemkharroubi21/achat:138
     restart: on-failure
     ports:
-      - "8089:8089"
+      - "8089:8087"
     environment:
       SPRING_APPLICATION_JSON: '{
         "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/achatdb?createDatabaseIfNotExist=true",
