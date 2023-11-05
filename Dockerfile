@@ -8,3 +8,5 @@ EXPOSE 8089
 
 # Commande d'exécution de l'application
 ENTRYPOINT ["java", "-jar", "achat-1.0.jar"]
+
+
