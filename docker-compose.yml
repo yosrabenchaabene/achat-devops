@@ -15,7 +15,7 @@ services:
   achat-app:
     depends_on:
       - mysqldb
-    image: houssemkharroubi21/achat:167
+    image: houssemkharroubi21/achat:168
     restart: on-failure
     ports:
       - "8089:8089"
