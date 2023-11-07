@@ -10,6 +10,7 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin("*")
 @Api(tags = "Gestion des fournisseurss")
 @RequestMapping("/fournisseur")
 public class FournisseurRestController {

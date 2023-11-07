@@ -13,6 +13,7 @@ import java.util.List;
 @CrossOrigin("*")
 @Api(tags = "Gestion des produits")
 @RequestMapping("/produit")
+
 public class ProduitRestController {
 
 	@Autowired
