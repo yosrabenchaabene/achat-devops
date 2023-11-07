@@ -34,9 +34,9 @@ services:
     depends_on:
       - achatapplication
       - mysqldb
-    image: abirbourguiba504/front-achat-devops:latest
+    image: testfront
     ports:
-      - 4200:4200
+      - 8085:80
     restart: unless-stopped
     networks:
       - apinetwork
