@@ -32,7 +32,7 @@ services:
 
   # Frontend application service
   achat-frontend:
-    image: medazizbay/frontend:latest # Specify the image name here
+    image: medazizbay/frontend:front # Specify the image name here
     restart: unless-stopped
     ports:
       - "80:80"
