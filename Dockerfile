@@ -1,12 +1,14 @@
-# Utilisez l'image OpenJDK 11 comme image de base
-FROM openjdk:11
+# Use an OpenJDK base image
+FROM openjdk:11-jre-slim
 
-# Exposez le port sur lequel votre application Java écoute
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the JAR file from your project into the container
+COPY target/achat-1.0.jar /app/achat-1.0.jar
+
+# Expose the port your Spring Boot application runs on (change to the actual port)
 EXPOSE 8089
 
-# Définissez le répertoire de travail dans le conteneur
-WORKDIR /app
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-# Commande d'entrée pour exécuter l'application Java
-CMD ["java", "-jar", "app.jar"]
+# Define the command to run your Spring Boot application
+CMD ["java", "-jar", "achat-1.0.jar"]
