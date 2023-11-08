@@ -69,7 +69,7 @@ public class FactureTest {
         assertEquals(factureId, retrievedFacture.getIdFacture());
     }
 
-  
+
 
 
 }
